@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+ai-student-planner/node_modules/
+server/node_modules/
+
+# Environment variables (IMPORTANT!)
+.env
+server/.env
+ai-student-planner/.env
+
+# Build outputs
+dist/
+build/
+ai-student-planner/dist/
+server/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+coverage/
+
+# Misc
+*.local
+dist-ssr/
