@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import {
   createRoadmap,
   getUserRoadmaps,
@@ -8,15 +8,25 @@ import {
 } from '../controllers/roadmapController';
 import { authMiddleware } from '../middleware/authMiddleware';
 
-const router = express.Router();
+const router: Router = express.Router();
 
-// All roadmap routes require authentication
+// Apply authentication middleware to all routes
 router.use(authMiddleware);
 
-router.post('/create', createRoadmap);
+// Roadmap routes
+// POST /api/roadmap/generate - Create new roadmap
+router.post('/generate', createRoadmap);
+
+// GET /api/roadmap - Get all roadmaps for user
 router.get('/', getUserRoadmaps);
+
+// GET /api/roadmap/:id - Get specific roadmap
 router.get('/:id', getRoadmapById);
+
+// PUT /api/roadmap/:id/progress - Update topic progress
 router.put('/:id/progress', updateTopicProgress);
+
+// DELETE /api/roadmap/:id - Delete roadmap
 router.delete('/:id', deleteRoadmap);
 
 export default router;

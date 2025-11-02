@@ -1,14 +1,7 @@
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-
 export interface Message {
-  _id?: string;
-  role: 'user' | 'assistant' | 'system';
+  role: 'user' | 'assistant';
   content: string;
-  timestamp?: Date;
+  timestamp: Date;
 }
 
 export interface Chat {
@@ -16,27 +9,33 @@ export interface Chat {
   userId: string;
   title: string;
   messages: Message[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
-export interface SubTopic {
-  name: string;
-  completed: boolean;
-}
-
-export interface Topic {
-  name: string;
-  subTopics: SubTopic[];
-  completed: boolean;
+export interface RoadmapTopic {
+  week: number;
+  title: string;
+  subtopics: string[];
+  completedSubtopics?: string[];
 }
 
 export interface Roadmap {
   _id: string;
   userId: string;
   type: 'exam' | 'placement';
+  title: string;
   subject?: string;
-  topics: Topic[];
+  topics: RoadmapTopic[];
+  progress: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
   createdAt: Date;
   updatedAt: Date;
 }

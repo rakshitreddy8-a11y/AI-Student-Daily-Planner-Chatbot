@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import {
   createChat,
   sendMessage,
@@ -8,15 +8,25 @@ import {
 } from '../controllers/chatController';
 import { authMiddleware } from '../middleware/authMiddleware';
 
-const router = express.Router();
+const router: Router = express.Router();
 
-// All chat routes require authentication
+// Apply authentication middleware to ALL routes
 router.use(authMiddleware);
 
-router.post('/create', createChat);
+// Chat routes
+// POST /api/chat - Create new chat with first message
+router.post('/', createChat);
+
+// POST /api/chat/message - Send message to existing chat
 router.post('/message', sendMessage);
+
+// GET /api/chat - Get all chats for logged-in user
 router.get('/', getUserChats);
+
+// GET /api/chat/:id - Get specific chat by ID
 router.get('/:id', getChatById);
+
+// DELETE /api/chat/:id - Delete a chat
 router.delete('/:id', deleteChat);
 
 export default router;

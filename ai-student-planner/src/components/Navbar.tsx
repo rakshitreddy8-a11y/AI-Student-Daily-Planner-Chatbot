@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { logout, getCurrentUser } from '../services/auth';
+import { logout, isAuthenticated } from '../services/auth';
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
-  const user = getCurrentUser();
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    // Get user from localStorage if authenticated
+    if (isAuthenticated()) {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        setUser(JSON.parse(userData));
+      }
+    }
+  }, []);
 
   const handleLogout = () => {
     logout();
+    setUser(null);
     navigate('/login');
   };
 
@@ -40,7 +51,7 @@ const Navbar: React.FC = () => {
   );
 };
 
-const styles = {
+const styles: { [key: string]: React.CSSProperties } = {
   nav: {
     backgroundColor: '#2c3e50',
     padding: '1rem',
@@ -67,9 +78,11 @@ const styles = {
   link: {
     color: '#ecf0f1',
     textDecoration: 'none',
+    transition: 'color 0.2s',
   },
   username: {
     color: '#ecf0f1',
+    fontWeight: '600',
   },
   logoutBtn: {
     backgroundColor: '#e74c3c',
@@ -78,6 +91,8 @@ const styles = {
     padding: '0.5rem 1rem',
     borderRadius: '4px',
     cursor: 'pointer',
+    transition: 'background-color 0.2s',
+    fontWeight: '600',
   },
 };
 

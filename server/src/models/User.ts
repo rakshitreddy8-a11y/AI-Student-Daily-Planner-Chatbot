@@ -5,26 +5,34 @@ export interface IUser extends Document {
   email: string;
   password: string;
   createdAt: Date;
+  updatedAt: Date;
 }
 
-const userSchema = new Schema<IUser>({
-  name: {
-    type: String,
-    required: true,
+const userSchema = new Schema<IUser>(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,  // ✅ Keep this
+      lowercase: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
+
+// ❌ REMOVE this line (it's duplicate):
+// userSchema.index({ email: 1 });
 
 export default mongoose.model<IUser>('User', userSchema);

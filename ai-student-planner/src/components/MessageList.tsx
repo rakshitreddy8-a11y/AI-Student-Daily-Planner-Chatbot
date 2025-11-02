@@ -10,7 +10,7 @@ const MessageList: React.FC<MessageListProps> = ({ messages }) => {
     <div style={styles.container}>
       {messages.map((msg, index) => (
         <div
-          key={msg._id || index}
+          key={index}  // ✅ FIXED: Use index as key (messages are in order)
           style={{
             ...styles.message,
             ...(msg.role === 'user' ? styles.userMessage : styles.assistantMessage),

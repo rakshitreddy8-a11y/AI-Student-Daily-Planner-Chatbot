@@ -25,12 +25,12 @@ export interface SendMessageRequest {
 
 export interface CreateRoadmapRequest {
   type: 'exam' | 'placement';
-  title: string;
-  subject?: string;
+  title?: string;
+  subject: string;
+  duration?: number;
 }
 
 export interface UpdateTopicRequest {
-  topicIndex: number;
-  subTopicIndex: number;
-  completed: boolean;
+  week: number;
+  subtopic: string;
 }

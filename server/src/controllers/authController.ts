@@ -2,35 +2,44 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
-import { LoginRequest, SignupRequest } from '../types';
+import { AuthRequest } from '../middleware/authMiddleware';
 
+// Signup (Register) - matches frontend register()
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { name, email, password }: SignupRequest = req.body;
+    const { name, email, password } = req.body;
 
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      res.status(400).json({ message: 'User already exists' });
+    // Validate required fields
+    if (!name || !email || !password) {
+      res.status(400).json({ message: 'Please provide all required fields' });
       return;
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      res.status(400).json({ message: 'Email already registered' });
+      return;
+    }
 
-    const user = new User({
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create new user
+    const user = await User.create({
       name,
       email,
       password: hashedPassword,
     });
 
-    await user.save();
-
+    // Generate JWT token
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET as string,
       { expiresIn: '7d' }
     );
 
+    // Return token and user data (matches frontend AuthResponse type)
     res.status(201).json({
       token,
       user: {
@@ -45,29 +54,40 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+// Login - matches frontend login()
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password }: LoginRequest = req.body;
+    const { email, password } = req.body;
 
+    // Validate required fields
+    if (!email || !password) {
+      res.status(400).json({ message: 'Please provide all required fields' });
+      return;
+    }
+
+    // Find user by email
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json({ message: 'Invalid credentials' });
+      res.status(401).json({ message: 'Invalid credentials' });
       return;
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      res.status(400).json({ message: 'Invalid credentials' });
+    // Verify password
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      res.status(401).json({ message: 'Invalid credentials' });
       return;
     }
 
+    // Generate JWT token
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET as string,
       { expiresIn: '7d' }
     );
 
-    res.json({
+    // Return token and user data (matches frontend AuthResponse type)
+    res.status(200).json({
       token,
       user: {
         id: user._id,
@@ -81,9 +101,16 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const getProfile = async (req: Request, res: Response): Promise<void> => {
+// Get Profile - protected route
+export const getProfile = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
-    const userId = (req as any).userId;
+    const userId = req.userId;
+    
+    if (!userId) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+
     const user = await User.findById(userId).select('-password');
 
     if (!user) {
@@ -91,7 +118,12 @@ export const getProfile = async (req: Request, res: Response): Promise<void> => 
       return;
     }
 
-    res.json(user);
+    res.status(200).json({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+    });
   } catch (error) {
     console.error('Get profile error:', error);
     res.status(500).json({ message: 'Server error' });

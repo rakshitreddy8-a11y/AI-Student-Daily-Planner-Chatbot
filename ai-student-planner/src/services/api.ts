@@ -1,71 +1,119 @@
 import axios from 'axios';
-import type { Chat, Roadmap, Message } from '../types';
+import type { Roadmap, Chat } from '../types';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:5000/api';
 
-const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-api.interceptors.request.use((config) => {
+// Helper to get auth headers
+const getAuthHeaders = () => {
   const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+  return {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`,
+  };
+};
 
-export const createChat = async (title: string): Promise<Chat> => {
-  const response = await api.post('/chat/create', { title });
+// ============================================
+// AUTH APIS
+// ============================================
+
+export const register = async (name: string, email: string, password: string) => {
+  const response = await axios.post(`${API_URL}/auth/register`, {
+    name,
+    email,
+    password,
+  });
+  return response.data;
+};
+
+export const login = async (email: string, password: string) => {
+  const response = await axios.post(`${API_URL}/auth/login`, {
+    email,
+    password,
+  });
+  return response.data;
+};
+
+// ============================================
+// CHAT APIS
+// ============================================
+
+export const createChat = async (message: string): Promise<Chat> => {
+  const response = await axios.post(
+    `${API_URL}/chat`,
+    { message },
+    { headers: getAuthHeaders() }
+  );
   return response.data;
 };
 
 export const getAllChats = async (): Promise<Chat[]> => {
-  const response = await api.get('/chat');
+  const response = await axios.get(`${API_URL}/chat`, {
+    headers: getAuthHeaders(),
+  });
   return response.data;
 };
 
-export const getChat = async (chatId: string): Promise<Chat> => {
-  const response = await api.get(`/chat/${chatId}`);
+export const sendMessage = async (chatId: string, message: string): Promise<Chat> => {
+  const response = await axios.post(
+    `${API_URL}/chat/message`,
+    { chatId, message },
+    { headers: getAuthHeaders() }
+  );
   return response.data;
 };
 
-export const sendMessage = async (
-  chatId: string,
-  message: string
-): Promise<Message> => {
-  const response = await api.post(`/chat/${chatId}/message`, { message });
-  return response.data;
+export const deleteChat = async (chatId: string): Promise<void> => {
+  await axios.delete(`${API_URL}/chat/${chatId}`, {
+    headers: getAuthHeaders(),
+  });
 };
+
+// ============================================
+// ROADMAP APIS
+// ============================================
 
 export const generateRoadmap = async (
   type: 'exam' | 'placement',
-  subject?: string
+  subject: string,
+  title?: string
 ): Promise<Roadmap> => {
-  const response = await api.post('/roadmap/generate', { type, subject });
+  const response = await axios.post(
+    `${API_URL}/roadmap/generate`,
+    { type, subject, title },
+    { headers: getAuthHeaders() }
+  );
   return response.data;
 };
 
 export const getAllRoadmaps = async (): Promise<Roadmap[]> => {
-  const response = await api.get('/roadmap');
+  const response = await axios.get(`${API_URL}/roadmap`, {
+    headers: getAuthHeaders(),
+  });
+  return response.data;
+};
+
+export const getRoadmapById = async (id: string): Promise<Roadmap> => {
+  const response = await axios.get(`${API_URL}/roadmap/${id}`, {
+    headers: getAuthHeaders(),
+  });
   return response.data;
 };
 
 export const updateRoadmapProgress = async (
   roadmapId: string,
-  topicIndex: number,
-  subTopicIndex: number,
-  completed: boolean
+  week: number,
+  subtopic: string
 ): Promise<Roadmap> => {
-  const response = await api.put(`/roadmap/${roadmapId}/progress`, {
-    topicIndex,
-    subTopicIndex,
-    completed,
-  });
+  const response = await axios.put(
+    `${API_URL}/roadmap/${roadmapId}/progress`,
+    { week, subtopic },
+    { headers: getAuthHeaders() }
+  );
   return response.data;
 };
 
-export default api;
+export const deleteRoadmap = async (roadmapId: string): Promise<void> => {
+  await axios.delete(`${API_URL}/roadmap/${roadmapId}`, {
+    headers: getAuthHeaders(),
+  });
+};

@@ -5,7 +5,7 @@ import { authMiddleware } from '../middleware/authMiddleware';
 const router = express.Router();
 
 // Public routes
-router.post('/signup', signup);
+router.post('/register', signup);   // ✅ Changed from /signup to /register
 router.post('/login', login);
 
 // Protected route
