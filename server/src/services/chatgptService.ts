@@ -76,6 +76,8 @@ const detectCompanyOrExam = (message: string): { name: string; type: string; cat
     'cat': 'CAT MBA Entrance',
     'cat exam': 'CAT MBA Entrance',
     'upsc': 'UPSC Civil Services',
+    'upsc civil services': 'UPSC Civil Services',
+    'civil services': 'UPSC Civil Services',
     'ias': 'UPSC IAS',
     'ssc': 'SSC Exams',
     'ssc cgl': 'SSC CGL',
@@ -839,9 +841,323 @@ Strategic plan to crack GATE with top rank!
 ✅ Mock tests mandatory
 ✅ Formulas memorization
 
-**📊 Target: 60+ marks (Top 100 AIR)
+**📊 Target: 60+ marks (Top 100 AIR)**
 
 **💪 GATE is your gateway! Ask doubts!**`;
+  }
+
+  // ✅ ENHANCED UPSC ROADMAP (UPDATED!)
+  if (exam.includes('UPSC') || exam.includes('IAS') || exam.includes('Civil Services')) {
+    return `🎯 **UPSC Civil Services - Complete Preparation Roadmap**
+
+Strategic plan to ace UPSC Civil Services!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📅 Complete Study Plan**
+
+**Study Plan:**
+
+**Phase 1: Foundation (3-4 months)**
+• Complete syllabus coverage
+• NCERT/Standard books
+• Concept clarity
+
+**Phase 2: Practice (3-6 months)**
+• Previous year papers
+• Mock tests
+• Answer writing practice
+
+**Phase 3: Revision (2 months)**
+• Complete revision
+• Important topics focus
+• Speed improvement
+
+**Phase 4: Final Prep (1 month)**
+• Recent previous years
+• Current affairs revision
+• Exam strategy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📚 Detailed Breakdown:**
+
+**Prelims Preparation:**
+
+**General Studies Paper I:**
+1. **History**
+   - Ancient India (Indus, Vedic, Mauryan)
+   - Medieval India (Delhi Sultanate, Mughals)
+   - Modern India (1857-1947)
+   - Art & Culture (UNESCO sites, classical arts)
+   - Freedom Movement (Gandhi, Nehru era)
+
+2. **Geography**
+   - Physical Geography (Climatology, Oceanography)
+   - Indian Geography (Rivers, Mountains, Resources)
+   - World Geography (Continents, Climate zones)
+   - Environmental Ecology & Biodiversity
+   - Climate Change & Disaster Management
+
+3. **Polity & Governance**
+   - Indian Constitution (Parts, Schedules, Articles)
+   - Parliament & Legislative procedures
+   - Judiciary & Constitutional bodies
+   - Fundamental Rights & Duties
+   - Government schemes & policies
+
+4. **Economy**
+   - Indian Economy basics
+   - Economic Development (Planning, Budgeting)
+   - Banking & Finance
+   - Agriculture & Industry
+   - Government Economic Policies
+
+5. **Science & Technology**
+   - General Science (Physics, Chemistry, Biology)
+   - Recent S&T developments
+   - Space technology
+   - Defense technology
+   - IT & Computers
+
+6. **Current Affairs**
+   - Last 12 months events
+   - PIB releases
+   - Government reports
+   - International relations
+   - National issues
+
+**CSAT (Paper II):**
+1. Comprehension passages
+2. Logical reasoning
+3. Analytical ability
+4. Decision making
+5. Basic numeracy
+6. Data interpretation
+
+**Mains Preparation:**
+
+**Essay Paper:**
+1. Philosophical essays
+2. Social issues
+3. Economic topics
+4. Science & Technology themes
+5. Current affairs-based
+
+**General Studies Papers (GS 1-4):**
+1. **GS-1:** History, Geography, Society
+2. **GS-2:** Polity, Governance, International Relations
+3. **GS-3:** Economy, Environment, Security
+4. **GS-4:** Ethics, Integrity, Aptitude
+
+**Optional Subject:**
+(Choose: Geography, History, Public Admin, Sociology, etc.)
+
+**Interview (Personality Test):**
+1. Current affairs knowledge
+2. Analytical thinking
+3. Communication skills
+4. Ethical reasoning
+5. General awareness
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📖 Must-Read Books:**
+
+**History:**
+✅ NCERT (6-12th)
+✅ India's Struggle for Independence - Bipan Chandra
+✅ Ancient India - R.S. Sharma
+✅ Medieval India - Satish Chandra
+
+**Geography:**
+✅ NCERT (6-12th)
+✅ Certificate Physical & Human Geography - G.C. Leong
+✅ Oxford School Atlas
+
+**Polity:**
+✅ Indian Polity - M. Laxmikanth
+✅ Indian Constitution at Work - NCERT
+
+**Economy:**
+✅ Indian Economy - Ramesh Singh
+✅ Economic Survey (latest)
+✅ Budget documents
+
+**Environment:**
+✅ Environment - Shankar IAS Academy
+✅ NCERT Environment books
+
+**Current Affairs:**
+✅ The Hindu newspaper (daily)
+✅ PIB website (daily)
+✅ Yojana & Kurukshetra magazines
+✅ Economic & Political Weekly
+
+**🎯 Daily Study Schedule:**
+
+**For Working Professionals (6-8 hours):**
+📌 Morning: 2-3 hours (before work)
+📌 Evening: 3-4 hours (after work)
+📌 Weekend: 10-12 hours
+
+**For Full-Time Aspirants (10-12 hours):**
+📌 6:00-8:00 AM: Newspaper + Current Affairs
+📌 8:00-10:00 AM: History/Geography
+📌 10:00-12:00 PM: Polity/Economy
+📌 12:00-1:00 PM: Lunch Break
+📌 1:00-3:00 PM: Optional Subject
+📌 3:00-5:00 PM: Answer Writing Practice
+📌 5:00-7:00 PM: Revision + Notes Making
+📌 7:00-8:00 PM: Dinner Break
+📌 8:00-10:00 PM: Mock Tests/Previous Years
+
+**🎯 Success Tips:**
+
+✅ **NCERT is Foundation:** Read 6th-12th NCERT thoroughly
+✅ **Newspaper Daily:** The Hindu or Indian Express
+✅ **Make Notes:** Subject-wise short notes
+✅ **Revise Weekly:** Don't skip revision
+✅ **Mock Tests:** 20+ Prelims, 15+ Mains
+✅ **Answer Writing:** Daily practice (Mains)
+✅ **Current Affairs:** Maintain monthly compilation
+✅ **Optional Subject:** Choose wisely (interest + scoring)
+✅ **Interview Prep:** Start 2 months before interview
+✅ **Stay Healthy:** Exercise, yoga, meditation
+
+**📊 Exam Pattern:**
+
+**Prelims (Objective):**
+- Paper I: GS (200 marks)
+- Paper II: CSAT (200 marks, qualifying)
+- Total: 400 marks
+- Duration: 2 hours each
+
+**Mains (Descriptive):**
+- Essay: 250 marks
+- GS Papers (1-4): 250 marks each
+- Optional: 500 marks (2 papers)
+- Total: 1750 marks
+
+**Interview:**
+- Personality Test: 275 marks
+
+**Grand Total: 2025 marks**
+
+**🎯 Prelims Strategy:**
+✅ Attempt 85-90 questions (out of 100)
+✅ Accuracy > Speed
+✅ Negative marking: -0.33 per wrong answer
+✅ Target: 95+ in GS Paper I
+
+**🎯 Mains Strategy:**
+✅ Answer in structured format
+✅ Use diagrams & flowcharts
+✅ Keyword-based answers
+✅ Introduction-Body-Conclusion structure
+✅ Word limit adherence
+
+**📅 Timeline:**
+
+**Year 1:**
+- Months 1-4: Foundation building
+- Months 5-8: Practice & answer writing
+- Months 9-10: Mock tests
+- Months 11-12: Revision & Prelims
+
+**Year 2 (If Prelims cleared):**
+- Months 1-3: Mains preparation
+- Month 4: Mains exam
+- Months 5-6: Interview preparation
+- Month 7: Interview
+
+**💪 Remember:**
+- UPSC is a marathon, not a sprint
+- Consistency > Intensity
+- Stay updated with current affairs
+- Practice answer writing daily
+- Revise, revise, revise!
+- Stay motivated & positive
+
+**🎯 Target:**
+- Prelims: 100+ marks (GS Paper I)
+- Mains: 900+ marks (out of 1750)
+- Interview: 150+ marks (out of 275)
+
+**📊 Success Statistics:**
+- Attempts needed: 2-3 on average
+- Success rate: 0.1% (1 in 1000)
+- Total vacancies: ~1000 per year
+- Total candidates: ~10 lakh
+
+**🎉 UPSC is tough but achievable with dedication!**
+
+**Need help with:**
+- Specific subject preparation?
+- Optional subject selection?
+- Answer writing techniques?
+- Current affairs analysis?
+- Mock test strategies?
+
+**Just ask me! I'm here to guide you! 💪📚**`;
+  }
+
+  // CAT MBA Entrance
+  if (exam.includes('CAT')) {
+    return `📚 **CAT MBA Entrance - Complete Preparation Roadmap**
+
+Strategic plan to crack CAT and get into IIMs!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📅 8-Month Preparation Plan**
+
+**Month 1-2: Quantitative Aptitude Foundation**
+1. Arithmetic (Number Systems, Percentages)
+2. Algebra (Equations, Inequalities)
+3. Geometry (Triangles, Circles)
+
+**Month 3-4: DILR & VARC Foundation**
+1. Data Interpretation (Tables, Graphs)
+2. Logical Reasoning (Seating, Puzzles)
+3. Reading Comprehension
+4. Verbal Ability
+
+**Month 5-6: Advanced Practice**
+1. Advanced QA problems
+2. Complex DILR sets
+3. Difficult RC passages
+4. Speed improvement
+
+**Month 7: Mock Tests & Analysis**
+1. CAT Mock Tests (20+)
+2. Sectional tests
+3. Previous years (2015-2024)
+4. Performance analysis
+
+**Month 8: Final Preparation**
+1. Revision & weak areas
+2. Formula sheets
+3. Last 3 years CAT papers
+4. Exam strategy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**📖 Best Resources:**
+✅ Arun Sharma books
+✅ CL/TIME test series
+✅ Previous CAT papers
+✅ Online mock tests
+
+**🎯 Daily Study:**
+📌 QA: 3 hours
+📌 DILR: 2 hours
+📌 VARC: 2 hours
+**Total: 7 hours/day**
+
+**📊 Target: 99+ Percentile for IIM A/B/C**
+
+**💪 Ask for section-specific help!**`;
   }
 
   // Generic competitive exam
@@ -1300,7 +1616,7 @@ const generateSmartMockResponse = (message: string, conversationHistory: Message
 
 **I can create roadmaps for:**
 📌 **School Exams:** 10th/12th ICSE, CBSE boards
-📌 **Competitive Exams:** JEE, NEET, GATE, CAT
+📌 **Competitive Exams:** JEE, NEET, GATE, CAT, UPSC
 📌 **Tech Companies:** Google, Amazon, Microsoft
 📌 **Certifications:** CCNA, AWS, Azure
 📌 **Skills:** Python, Java, DSA, Web Development
@@ -1314,6 +1630,7 @@ What would you like to prepare for?`,
 **Popular requests:**
 🎯 "10th ICSE board exam roadmap"
 🎯 "JEE Main preparation roadmap"
+🎯 "UPSC Civil Services roadmap"
 🎯 "Google interview roadmap"
 🎯 "CCNA certification roadmap"
 🎯 "Python learning roadmap"

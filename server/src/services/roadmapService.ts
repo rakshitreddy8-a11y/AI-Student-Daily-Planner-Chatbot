@@ -52,6 +52,8 @@ const detectTarget = (subject: string): { name: string; category: string } => {
     'cat': 'CAT MBA Entrance',
     'cat exam': 'CAT MBA Entrance',
     'upsc': 'UPSC Civil Services',
+    'upsc civil services': 'UPSC Civil Services',
+    'civil services': 'UPSC Civil Services',
     'ias': 'UPSC IAS',
     'ssc': 'SSC Exams',
     'ssc cgl': 'SSC CGL',
@@ -660,6 +662,210 @@ const generateTopicsForTarget = (
     ];
   }
 
+  // ✅ UPSC Civil Services Roadmap (NEW!)
+  if (category === 'competitive_exam' && (name.includes('UPSC') || name.includes('IAS') || name.includes('Civil Services'))) {
+    return [
+      {
+        week: 1,
+        title: 'Prelims - General Studies Paper I (Part 1)',
+        subtopics: [
+          'Indian History - Ancient & Medieval',
+          'Modern Indian History (1857-1947)',
+          'Art & Culture - Basics',
+          'Indian National Movement',
+          'Post-Independence India',
+          'World History - Important Events',
+        ],
+      },
+      {
+        week: 2,
+        title: 'Prelims - General Studies Paper I (Part 2)',
+        subtopics: [
+          'Geography - Physical Geography',
+          'Indian Geography (Resources, Regions)',
+          'World Geography',
+          'Environmental Ecology',
+          'Biodiversity & Climate Change',
+          'Disaster Management',
+        ],
+      },
+      {
+        week: 3,
+        title: 'Prelims - Polity & Economy',
+        subtopics: [
+          'Indian Constitution & Polity',
+          'Governance & Social Justice',
+          'Indian Economy Basics',
+          'Economic Development',
+          'Planning & Budgeting',
+          'Government Schemes',
+        ],
+      },
+      {
+        week: 4,
+        title: 'Prelims - Science & Current Affairs',
+        subtopics: [
+          'General Science (Physics, Chemistry, Biology)',
+          'Science & Technology Developments',
+          'Current Affairs (Last 12 months)',
+          'PIB & Government Reports',
+          'International Relations',
+          'National Issues & Schemes',
+        ],
+      },
+      {
+        week: 5,
+        title: 'CSAT (Paper II) & Answer Writing',
+        subtopics: [
+          'Comprehension Skills',
+          'Logical Reasoning',
+          'Analytical Ability',
+          'Decision Making',
+          'Basic Numeracy & Data Interpretation',
+          'Mains Answer Writing Practice',
+        ],
+      },
+      {
+        week: 6,
+        title: 'Mains - Essay & Ethics',
+        subtopics: [
+          'Essay Writing (Philosophical, Social, Economic)',
+          'Ethics, Integrity & Aptitude',
+          'Case Studies Analysis',
+          'Quote-based Questions',
+          'Thinkers & Philosophers',
+          'Governance & Probity',
+        ],
+      },
+      {
+        week: 7,
+        title: 'Optional Subject & Mock Tests',
+        subtopics: [
+          'Optional Subject Syllabus Coverage',
+          'Standard Reference Books',
+          'Previous Year Questions (Optional)',
+          'Prelims Mock Tests (20+)',
+          'Mains Answer Writing Practice (50+)',
+          'Time Management Skills',
+        ],
+      },
+      {
+        week: 8,
+        title: 'Final Revision & Strategy',
+        subtopics: [
+          'Complete Revision (All Subjects)',
+          'Previous Year Papers (2010-2024)',
+          'Current Affairs Revision',
+          'Formula Sheets & Mnemonics',
+          'Interview Preparation Basics',
+          'Exam Day Strategy & Stress Management',
+        ],
+      },
+    ];
+  }
+
+  // ✅ CAT MBA Entrance Roadmap (NEW!)
+  if (category === 'competitive_exam' && name.includes('CAT')) {
+    return [
+      {
+        week: 1,
+        title: 'Quantitative Aptitude - Arithmetic',
+        subtopics: [
+          'Number Systems',
+          'Percentages & Profit-Loss',
+          'Ratio & Proportion',
+          'Time, Speed & Distance',
+          'Time & Work',
+          'Simple & Compound Interest',
+        ],
+      },
+      {
+        week: 2,
+        title: 'Quantitative Aptitude - Algebra & Geometry',
+        subtopics: [
+          'Linear & Quadratic Equations',
+          'Inequalities',
+          'Geometry Basics',
+          'Mensuration',
+          'Coordinate Geometry',
+          'Trigonometry',
+        ],
+      },
+      {
+        week: 3,
+        title: 'Data Interpretation & Logical Reasoning (Part 1)',
+        subtopics: [
+          'Tables & Charts',
+          'Bar Graphs & Line Graphs',
+          'Pie Charts',
+          'Caselets',
+          'Data Sufficiency',
+          'Venn Diagrams',
+        ],
+      },
+      {
+        week: 4,
+        title: 'Data Interpretation & Logical Reasoning (Part 2)',
+        subtopics: [
+          'Seating Arrangements',
+          'Blood Relations',
+          'Coding-Decoding',
+          'Puzzles',
+          'Syllogisms',
+          'Critical Reasoning',
+        ],
+      },
+      {
+        week: 5,
+        title: 'Verbal Ability & Reading Comprehension',
+        subtopics: [
+          'Reading Comprehension Passages',
+          'Para Jumbles',
+          'Para Completion',
+          'Sentence Correction',
+          'Vocabulary Building',
+          'Grammar Basics',
+        ],
+      },
+      {
+        week: 6,
+        title: 'Mock Tests & Practice (Sectional)',
+        subtopics: [
+          'QA Sectional Tests (10+)',
+          'DILR Sectional Tests (10+)',
+          'VARC Sectional Tests (10+)',
+          'Speed & Accuracy Practice',
+          'Error Analysis',
+          'Topic-wise Weak Areas',
+        ],
+      },
+      {
+        week: 7,
+        title: 'Full-Length Mock Tests',
+        subtopics: [
+          'CAT Mock Tests (20+)',
+          'Previous Year CAT Papers (2015-2024)',
+          'Time Management Strategies',
+          'Negative Marking Strategy',
+          'Section Selection Order',
+          'Performance Analysis',
+        ],
+      },
+      {
+        week: 8,
+        title: 'Final Revision & Exam Strategy',
+        subtopics: [
+          'Formula Sheets (All Topics)',
+          'Quick Revision Notes',
+          'Last 3 Years CAT Analysis',
+          'Exam Day Strategy',
+          'Stress Management',
+          'Confidence Building',
+        ],
+      },
+    ];
+  }
+
   // Company Interview Roadmap (existing - keep as is)
   if (category === 'company') {
     return [
@@ -985,7 +1191,7 @@ export const generateRoadmap = async (
     } else if (target.category === 'certification') {
       title = `${target.name} - Certification Preparation`;
     } else if (target.category === 'company') {
-      title = `${target.name} - Interview Preparation`;
+      title = `${target.name} - Interview Preparation Roadmap`;
     } else {
       title = `${target.name} - Learning Roadmap`;
     }
