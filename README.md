@@ -432,30 +432,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👨‍💻 Author
-
-**Raksh** (Your Name)
-
-- GitHub: [@rakshitreddy8](https://github.com/rakshitreddy8)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
----
-
-## 🙏 Acknowledgments
-
-- OpenAI for GPT architecture inspiration
-- MERN stack community
-- All contributors and testers
-- Students who inspired this project
-
----
-
-## 📞 Support
-
-For support, email your.email@example.com or open an issue on GitHub.
-
----
 
 ## ⭐ Star History
 
