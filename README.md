@@ -426,31 +426,6 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**Raksh** (Your Name)
-
-- GitHub: [@rakshitreddy8](https://github.com/rakshitreddy8)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
----
-
-## 🙏 Acknowledgments
-
-- OpenAI for GPT architecture inspiration
-- MERN stack community
-- All contributors and testers
-- Students who inspired this project
-
----
-
 ## 📞 Support
 
 For support, email your.email@example.com or open an issue on GitHub.
@@ -460,15 +435,6 @@ For support, email your.email@example.com or open an issue on GitHub.
 ## ⭐ Star History
 
 If you find this project helpful, please consider giving it a ⭐!
-
----
-
-## 📚 Documentation
-
-For detailed documentation, visit:
-- [API Documentation](docs/API.md)
-- [Frontend Guide](docs/FRONTEND.md)
-- [Backend Guide](docs/BACKEND.md)
 
 ---
 
