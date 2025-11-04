@@ -426,11 +426,20 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
+<<<<<<< HEAD
 ## 📞 Support
 
 For support, email your.email@example.com or open an issue on GitHub.
 
 ---
+=======
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+>>>>>>> 3435b45d62066a68ffc5fa69c2ce3bb1dcad8923
 
 ## ⭐ Star History
 
